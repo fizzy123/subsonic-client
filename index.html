@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="jqsubsonic.js"></script>
+    <script src="http://www.myersdaily.org/joseph/javascript/md5.js"></script>
+    <script>
+JQSubSonic.open("http://192.168.0.237:4040", "fizzyinc1@gmail.com", "", "", function(err, res) {
+  if (err) {
+    console.warn("err", err, err.error, typeof err.error);
+    return;
+  }
+  // once opened, the instance can be used anywhere
+  JQSubSonic.getArtists(function(err2, res2) {
+    if (err2) {
+      console.error("err2", err2);
+      return;
+    }
+    // res2 => rawResponse.subsonic-response.playlists.playlist an array of playlists, pre-filtered
+    console.log(res2);
+  });
+});
+    </script>
+  </head>
+</html>
